@@ -15,7 +15,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.2.2</app.runtime>
-		<mule.maven.plugin.version>3.2.7</mule.maven.plugin.version>
+		
 	</properties>
 
 	<build>
@@ -27,10 +27,50 @@
 				<extensions>true</extensions>
 				<configuration>
 				</configuration>
-			</plugin>
+			</plugin> 
+			
+			
+		    <plugin>
+            <groupId>org.mule.tools.maven</groupId>
+            <artifactId>mule-maven-plugin</artifactId>
+           <version>3.2.7</version>
+            <configuration>
+		        <cloudHubDeployment>
+		            <uri>https://anypoint.mulesoft.com</uri>
+		            <muleVersion>4.2.2</muleVersion>
+		              <username>${anypoint.username}</username>
+		            <password>${anypoint.password}</password> 
+		            <environment>${anypoint.env}</environment>
+		            <applicationName>mule-jenkins-test</applicationName>  
+		            <properties>
+		                <key>value</key>
+		            </properties>
+		        </cloudHubDeployment>
+		    </configuration>
+           	<executions>
+               <execution>
+                  <id>deploy</id>
+                  <phase>deploy</phase>
+                  <goals>
+                     <goal>deploy</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+		    
+		    
 		</plugins>
+		
 	</build>
-
+<distributionManagement>
+    <repository>
+        <uniqueVersion>false</uniqueVersion>
+        <id>corp1</id>
+        <name>Corporate Repository</name>
+        <url>file:///home/myfolder/.m2</url>
+        <layout>default</layout>
+    </repository>
+</distributionManagement>
 	<dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
