@@ -9,6 +9,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="mule-jenkins-testFlow" doc:id="df8dedea-6e57-4f47-b20f-22bb6ef55bb0" >
 		<http:listener doc:name="Listener" doc:id="9d52f0ec-2aee-425f-94bc-a5f7773e1fab" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="5d3eb6b5-0e44-4287-9b88-e9d5eed2c08e" />
 		<logger level="INFO" doc:name="Logger" doc:id="af0757e2-4be8-40ca-8ebd-c1214dc9d16d" message="#[payload]"/>
 	</flow>
 </mule>
