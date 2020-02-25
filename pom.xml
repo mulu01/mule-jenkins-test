@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+<!--mvn clean install deploy -Danypoint.username=mulu_alemu -Danypoint.password=Nov@@2021@@ -Danypoint.env=Sandbox -->
+	
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
@@ -30,6 +33,9 @@
 			</plugin> 
 			
 			
+		  
+		  
+		  
 		    <plugin>
             <groupId>org.mule.tools.maven</groupId>
             <artifactId>mule-maven-plugin</artifactId>
@@ -59,9 +65,14 @@
          </plugin>
 		    
 		    
+		    
+		    
+		    
 		</plugins>
 		
 	</build>
+	
+	
 <distributionManagement>
     <repository>
         <uniqueVersion>false</uniqueVersion>
@@ -71,6 +82,9 @@
         <layout>default</layout>
     </repository>
 </distributionManagement>
+
+
+
 	<dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
